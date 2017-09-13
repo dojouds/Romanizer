@@ -1,0 +1,53 @@
+{
+    "name": "maringadojo/romanizer",
+    "type": "library",
+    "description": "A package to help you convert decimal numbers to Roman numerals and vice versa.",
+    "keywords": [
+        "Dojo",
+        "Maringa",
+        "roman",
+        "numeral",
+        "convert"
+    ],
+    "homepage": "https://github.com/maringadojo/romanizer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maringa Dojo",
+            "email": "dojo@uds.com.br",
+            "homepage": "https://github.com/maringadojo",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~5.6|~7.0"
+    },
+    "require-dev": {
+        "codeclimate/php-test-reporter": "~0.3",
+        "phpunit/phpunit": "~5.0",
+        "squizlabs/php_codesniffer": "~2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "MaringaDojo\\Romanizer\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MaringaDojo\\Romanizer\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --colors=always",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
