@@ -4,6 +4,7 @@ namespace MaringaDojo\Romanizer\Tests;
 
 use MaringaDojo\Romanizer\Converter;
 use MaringaDojo\Romanizer\Exceptions\MaisDeTresSimbolosIguaisException;
+use MaringaDojo\Romanizer\Exceptions\SimboloInvalidoException;
 
 class ConverterTest extends TestCase
 {
@@ -73,5 +74,18 @@ class ConverterTest extends TestCase
         $this->converter->toDecimal('XXXXV');
         $this->converter->toDecimal('VIIII');
         $this->converter->toDecimal('IIIII');
+    }
+
+    public function testSimboloInvalidoException()
+    {
+        $this->expectException(SimboloInvalidoException::class);
+        $this->converter->toDecimal('A');
+    }
+
+    public function testFronteiras()
+    {
+        $this->assertEquals(14, $this->converter->toDecimal('XIV'));
+        $this->assertEquals(49, $this->converter->toDecimal('XLIX'));
+        $this->assertEquals(3999, $this->converter->toDecimal('MMMCMXCIX'));
     }
 }

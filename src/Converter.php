@@ -3,6 +3,7 @@
 namespace MaringaDojo\Romanizer;
 
 use MaringaDojo\Romanizer\Exceptions\MaisDeTresSimbolosIguaisException;
+use MaringaDojo\Romanizer\Exceptions\SimboloInvalidoException;
 
 class Converter
 {
@@ -24,6 +25,13 @@ class Converter
 
         for ($i = strlen($numeroRomano) - 1; $i >= 0; $i--) {
             $letra = $numeroRomano[$i];
+
+            if (! array_key_exists($letra, $this->romanoParaNumero)) {
+                throw new SimboloInvalidoException(
+                    $letra . 'É um simbolo invalido'
+                );
+            }
+
             $valorAtual = $this->romanoParaNumero[$letra];
 
             if ($valorAtual == $valorAnterior) {
@@ -48,5 +56,10 @@ class Converter
         }
 
         return $valor;
+    }
+
+    public function validaRepeticoes($entrada, $proximaEntrada = null)
+    {
+        $entrada == $proximaEntrada
     }
 }
