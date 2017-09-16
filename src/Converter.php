@@ -30,7 +30,9 @@ class Converter
                 $repeticoes++;
 
                 if ($repeticoes >= 3) {
-                    throw new MaisDeTresSimbolosIguaisException('Os simbolos só podem ser repitidos até três vezes.', 1);
+                    throw new MaisDeTresSimbolosIguaisException(
+                        'Os simbolos só podem ser repitidos até três vezes.'
+                    );
                 }
             } else {
                 $repeticoes = 0;
