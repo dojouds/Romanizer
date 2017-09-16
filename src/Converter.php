@@ -57,9 +57,4 @@ class Converter
 
         return $valor;
     }
-
-    public function validaRepeticoes($entrada, $proximaEntrada = null)
-    {
-        $entrada == $proximaEntrada
-    }
 }
