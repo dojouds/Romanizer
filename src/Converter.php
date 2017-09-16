@@ -6,7 +6,7 @@ use MaringaDojo\Romanizer\Exceptions\MaisDeTresSimbolosIguaisException;
 
 class Converter
 {
-    private $_romanoParaNumero = [
+    private $romanoParaNumero = [
         'M' => 1000,
         'D' => 500,
         'C' => 100,
@@ -25,13 +25,13 @@ class Converter
         for ($i = strlen($numeroRomano) - 1; $i >= 0; $i--) {
 
             $letra = $numeroRomano[$i];
-            $valorAtual = $this->_romanoParaNumero[$letra];
+            $valorAtual = $this->romanoParaNumero[$letra];
 
             if ($valorAtual == $valorAnterior) {
                 $repeticoes++;
 
                 if ($repeticoes >= 3) {
-                    throw new MaisDeTresSimbolosIguaisException("Os simbolos só podem ser repitidos até três vezes.", 1);
+                    throw new MaisDeTresSimbolosIguaisException('Os simbolos só podem ser repitidos até três vezes.', 1);
                 }
             } else {
                 $repeticoes = 0;
