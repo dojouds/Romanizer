@@ -23,7 +23,6 @@ class Converter
         $repeticoes = 0;
 
         for ($i = strlen($numeroRomano) - 1; $i >= 0; $i--) {
-
             $letra = $numeroRomano[$i];
             $valorAtual = $this->romanoParaNumero[$letra];
 
@@ -48,5 +47,4 @@ class Converter
 
         return $valor;
     }
-
 }
