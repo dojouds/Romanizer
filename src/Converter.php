@@ -17,6 +17,16 @@ class Converter
         'I' => 1,
     ];
 
+    private $numeroParaRomano = [
+        1000 => 'M',
+        500 => 'D',
+        100 => 'C',
+        50 => 'L',
+        10 => 'X',
+        5 => 'V',
+        1 => 'I',
+    ];
+
     public function toDecimal($numeroRomano)
     {
         $valor = 0;
@@ -56,5 +66,42 @@ class Converter
         }
 
         return $valor;
+    }
+
+    public function toRoman($numero)
+    {
+        if(isset($this->numeroParaRomano[$numero])){
+          return $this->numeroParaRomano[$numero];
+        }
+
+        $controladorMilhares = 0;
+        $controladorCentenas = 0;
+        $controladorDezenas = 0;
+        if($numero > 1000){
+            $controladorMilhares = intval($numero / 1000);
+            $numero = $numero - ($controladorMilhares * 1000);
+        }
+        if($numero > 100){
+            $controladorCentenas = intval($numero / 100);
+            $numero = $numero - ($controladorCentenas * 100);
+        }
+        if($numero > 10){
+            $controladorDezenas = intval($numero / 10);
+            $numero = $numero - ($controladorDezenas * 10);
+        }
+
+        $stringRomano = '';
+
+        for($x = 0; $x < $controladorMilhares; $x++){
+          $stringRomano .= 'M';
+        }
+        for($x = 0; $x < $controladorCentenas; $x++){
+          $stringRomano .= 'C';
+        }
+        for($x = 0; $x < $controladorDezenas; $x++){
+          $stringRomano .= 'X';
+        }
+
+        return $stringRomano;
     }
 }

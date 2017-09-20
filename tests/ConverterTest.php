@@ -88,4 +88,78 @@ class ConverterTest extends TestCase
         $this->assertEquals(49, $this->converter->toDecimal('XLIX'));
         $this->assertEquals(3999, $this->converter->toDecimal('MMMCMXCIX'));
     }
+
+    /*
+      testes de decimal para romano;
+    */
+
+    public function testDeveEntenderONumero1()
+    {
+      $this->assertEquals('I', $this->converter->toRoman(1));
+    }
+
+    // public function testDeveEntenderONumero2()
+    // {
+    //   $this->assertEquals('II', $this->converter->toRoman(2));
+    // }
+    //
+    // public function testDeveEntenderONumero3()
+    // {
+    //   $this->assertEquals('III', $this->converter->toRoman(3));
+    // }
+    //
+    // public function testDeveEntenderONumero4()
+    // {
+    //   $this->assertEquals('IV', $this->converter->toRoman(4));
+    // }
+    //
+    // public function testDeveEntenderONumero5()
+    // {
+    //   $this->assertEquals('V', $this->converter->toRoman(5));
+    // }
+    //
+    // public function testDeveEntenderONumero6()
+    // {
+    //   $this->assertEquals('VI', $this->converter->toRoman(6));
+    // }
+    //
+    // public function testDeveEntenderONumero7()
+    // {
+    //   $this->assertEquals('VII', $this->converter->toRoman(7));
+    // }
+    //
+    // public function testDeveEntenderONumero8()
+    // {
+    //   $this->assertEquals('VIII', $this->converter->toRoman(8));
+    // }
+    //
+    // public function testDeveEntenderONumero9()
+    // {
+    //   $this->assertEquals('IX', $this->converter->toRoman(9));
+    // }
+    //
+    public function testDeveEntenderONumero10()
+    {
+      $this->assertEquals('X', $this->converter->toRoman(10));
+    }
+    public function testDeveEntenderONumero20()
+    {
+      $this->assertEquals('XX', $this->converter->toRoman(20));
+    }
+    public function testDeveEntenderONumero30()
+    {
+      $this->assertEquals('XXX', $this->converter->toRoman(30));
+    }
+    public function testDeveEntenderONumero100()
+    {
+      $this->assertEquals('C', $this->converter->toRoman(100));
+    }
+    public function testDeveEntenderONumero1000()
+    {
+      $this->assertEquals('M', $this->converter->toRoman(1000));
+    }
+    public function testDeveEntenderONumero2300()
+    {
+      $this->assertEquals('MMCCC', $this->converter->toRoman(2300));
+    }
 }
